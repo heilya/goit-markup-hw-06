@@ -11,6 +11,8 @@
   --border-color: #e7e9fc;
   --icon-color: #8e8f99;
   --active-icon-color: #31d0aa;
+  --modal-text-color: #8e8f99;
+  --policy-text-color: #757575;
 }
 h1,
 h2,
@@ -201,7 +203,7 @@ body {
   background-color: var(--active-color);
 }
 /* Our benefits */
-.hidden-title {
+.visually-hidden {
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -636,8 +638,12 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 408px;
-  height: 576px;
   background-color: var(--primari-page-color);
+  padding-top: 72px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  border-radius: 4px;
 }
 .modal-close-btn {
   position: absolute;
@@ -666,4 +672,163 @@ body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.modal-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--primary-text-color);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+.modal-form-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  padding-left: 38px;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: var(--primary-text-color);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-form-input:focus {
+  outline: none;
+  border-color: var(--brand-color);
+}
+
+.modal-form-input-icon {
+  color: var(--primary-text-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-input:focus + .modal-form-input-icon {
+  fill: var(--brand-color);
+}
+
+.modal-form-input-desc {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: var(--modal-text-color);
+  margin-bottom: 4px;
+}
+
+.modal-form-message {
+  width: 100%;
+  height: 120px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  resize: none;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: var(--primary-text-color);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-message:focus {
+  outline: none;
+  border-color: var(--brand-color);
+}
+
+.modal-form-message::placeholder {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.modal-form-input-wrapper {
+  position: relative;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.modal-form-input-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translate(0, -50%);
+}
+
+.modal-form-check-desc::before {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border: 1px solid var(--primary-text-color);
+  border-radius: 2px;
+  cursor: pointer;
+  content: "";
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-image 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-check:checked + .modal-form-check-desc::before {
+  background-color: var(--active-color);
+  background-image: url(../images/сheck.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+  border-color: var(--active-color);
+}
+
+.modal-form-check-desc {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  color: var(--policy-text-color);
+}
+
+.policy-link {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  color: var(--brand-color);
+}
+
+.modal-form-submit {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--primari-page-color);
+  background-color: var(--brand-color);
+  align-self: center;
+  cursor: pointer;
+  min-width: 169px;
+  padding: 16px 32px;
+  border-radius: 4px;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-submit:hover,
+.modal-form-submit:focus {
+  background-color: var(--active-color);
 }
